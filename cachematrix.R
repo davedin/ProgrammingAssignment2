@@ -8,7 +8,30 @@
 ## its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+    
+    # init x
+    x <- NULL
+    
+    # set the value of a matrix and its invers
+    set <- function(y) {
+        x <<- y
+        inverse <<- NULL
+    }
+    
+    # function to return X
+    get <- function() x
+    
+    # function to set the inverse of x
+    setInv <- function(x) inverse <<- solve(x)
+    
+    # funtion to return the inverse of x
+    getInv <- function() inverse
+    
+    # return these functions
+    list(set = set, get = get,
+         setInv = setInv,
+         getInv = getInv)
+    
 }
 
 
